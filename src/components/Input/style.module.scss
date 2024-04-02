@@ -1,0 +1,35 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  input {
+    background: #333333;
+    border: 2px solid #464646;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0 0.5rem;
+    color: #eee;
+
+    &:focus {
+      outline: 2px solid #c81c6f;
+    }
+  }
+}
+
+.error {
+  input {
+    outline: 2px solid #c81c6f;
+  }
+
+  span {
+    color: #c81c6f;
+    font-weight: 500;
+  }
+}

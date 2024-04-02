@@ -1,0 +1,21 @@
+.button {
+  border: 2px solid #c81c6f;
+  border-radius: 4px;
+  background: #242424;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.85rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.1s ease-in-out;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  &:hover {
+    background: #c81c6f;
+    color: #242424;
+  }
+}
