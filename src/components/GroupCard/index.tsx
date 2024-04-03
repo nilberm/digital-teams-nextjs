@@ -75,6 +75,7 @@ export default function GroupCard({
           type="button"
           className={style.addBtn}
           onClick={() => setOpenAddParticipantModal(true)}
+          disabled={team.size === team.participants.length}
         >
           ADICIONAR
         </Button>

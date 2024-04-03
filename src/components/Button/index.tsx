@@ -5,11 +5,13 @@ interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  disabled?: boolean;
 }
 export default function Button({
   type = "button",
   children,
   className = "",
+  disabled = false,
   onClick,
   ...props
 }: ButtonProps) {
@@ -18,6 +20,7 @@ export default function Button({
       className={`${style.button} ${className}`}
       type={type}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>
