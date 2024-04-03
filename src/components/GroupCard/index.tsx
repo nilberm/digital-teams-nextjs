@@ -27,12 +27,14 @@ interface GroupCardProps {
   team: TeamProps;
   removeTeam: (index: number) => void;
   addParticipant: (teamIndex: number, name: string) => void;
+  removeParticipant: (participantIndex: number, teamIndex: number) => void;
 }
 export default function GroupCard({
   team,
   index,
   removeTeam,
   addParticipant,
+  removeParticipant,
 }: GroupCardProps) {
   const [openAddParticipantModal, setOpenAddParticipantModal] = useState(false);
   const [openParticipantsModal, setOpenParticipantsModal] = useState(false);
@@ -75,7 +77,7 @@ export default function GroupCard({
           type="button"
           className={style.addBtn}
           onClick={() => setOpenAddParticipantModal(true)}
-          disabled={team.size === team.participants.length}
+          disabled={team.size > team.participants.length ? false : true}
         >
           ADICIONAR
         </Button>
@@ -127,10 +129,30 @@ export default function GroupCard({
             </button>
           </div>
           <ul>
-            {team.participants.map((participant) => (
-              <li key={participant.name}>{participant.name}</li>
+            {team.participants.map((participant, participantIndex) => (
+              <li key={participant.name}>
+                {participant.name}
+                <Button
+                  onClick={() => removeParticipant(participantIndex, index)}
+                >
+                  <FaTrash />
+                </Button>
+              </li>
             ))}
           </ul>
+
+          {team.size > team.participants.length && (
+            <Button
+              type="button"
+              className={style.addBtn}
+              onClick={() => {
+                setOpenParticipantsModal(false);
+                setOpenAddParticipantModal(true);
+              }}
+            >
+              ADICIONAR
+            </Button>
+          )}
         </div>
       </Modal>
 

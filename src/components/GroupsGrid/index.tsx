@@ -83,6 +83,24 @@ export default function GroupsGrid(props: GroupsGridProps) {
     );
   };
 
+  const removeParticipant = (participantIndex: number, teamIndex: number) => {
+    setTeams(
+      teams?.map((team, index) => {
+        if (index === teamIndex) {
+          return {
+            ...team,
+            participants: [
+              ...team.participants.filter(
+                (_, index) => index !== participantIndex
+              ),
+            ],
+          };
+        }
+        return team;
+      })
+    );
+  };
+
   useEffect(() => {
     const savedTeams = localStorage.getItem("teams");
 
@@ -132,6 +150,7 @@ export default function GroupsGrid(props: GroupsGridProps) {
                     team={team}
                     removeTeam={removeTeam}
                     addParticipant={addParticipant}
+                    removeParticipant={removeParticipant}
                   />
                 );
               })
