@@ -34,6 +34,8 @@
     height: 40px;
     padding: 0 0.5rem;
 
+    cursor: text;
+
     .input {
       width: 100%;
       height: 40px;
@@ -43,6 +45,24 @@
       outline: none;
       padding: 0 0.5rem;
       color: #eee;
+    }
+
+    button {
+      border: none;
+      background: none;
+      color: #464646;
+      cursor: text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .onFocus {
+    border: 2px solid #c81c6f;
+
+    button {
+      color: #c81c6f;
     }
   }
 }
